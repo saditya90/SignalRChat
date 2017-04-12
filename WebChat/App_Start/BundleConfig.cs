@@ -25,7 +25,23 @@ namespace WebChat
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/Site.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/chatjs").Include(
+                      "~/Scripts/jquery.autosize.js",
+                      "~/Scripts/jquery.chatjs.utils.js",
+                      "~/Scripts/jquery.chatjs.adapter.servertypes.js",
+                      "~/Scripts/jquery.chatjs.adapter.js",
+                      "~/Scripts/jquery.chatjs.adapter.signalr.js",
+                      "~/Scripts/jquery.chatjs.window.js",
+                      "~/Scripts/jquery.chatjs.messageboard.js",
+                      "~/Scripts/jquery.chatjs.userlist.js",
+                      "~/Scripts/jquery.chatjs.pmwindow.js",
+                      "~/Scripts/jquery.chatjs.friendswindow.js",
+                      "~/Scripts/jquery.chatjs.controller.js"));
+
+            bundles.Add(new StyleBundle("~/Content/chatcss").Include(
+                      "~/Content/jquery.chatjs.css"));
         }
     }
 }

@@ -22,3 +22,12 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.chat-window-inner-content {
+    height: 290px !important;
+    overflow-y: auto;
+}
+
+.messages-wrapper {
+    height: 266px !important;
+}

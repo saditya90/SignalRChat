@@ -2,29 +2,9 @@
     ViewBag.Title = "Home Page";
 }
 @if (Request.IsAuthenticated)
-{
-    <style>
-        .chat-window-inner-content {
-            height: 290px !important;
-            overflow-y: auto;
-        }
-
-        .messages-wrapper {
-            height: 266px !important;
-        }
-    </style>
-    <script src="~/Scripts/jquery.autosize.js"></script>
-    <script src="~/Scripts/jquery.chatjs.utils.js"></script>
-    <script src="~/Scripts/jquery.chatjs.adapter.servertypes.js"></script>
-    <script src="~/Scripts/jquery.chatjs.adapter.js"></script>
-    <script src="~/Scripts/jquery.chatjs.adapter.signalr.js"></script>
-    <script src="~/Scripts/jquery.chatjs.window.js"></script>
-    <script src="~/Scripts/jquery.chatjs.messageboard.js"></script>
-    <script src="~/Scripts/jquery.chatjs.userlist.js"></script>
-    <script src="~/Scripts/jquery.chatjs.pmwindow.js"></script>
-    <script src="~/Scripts/jquery.chatjs.friendswindow.js"></script>
-    <script src="~/Scripts/jquery.chatjs.controller.js"></script>
-    <link rel="stylesheet" href="~/Content/jquery.chatjs.css" />
+{ 
+    @Scripts.Render("~/bundles/chatjs")
+    @Styles.Render("~/Content/chatcss")
 }
 <div class="jumbotron">
     <h1>ASP.NET</h1>
