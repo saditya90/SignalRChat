@@ -1,16 +1,16 @@
 # SignalRChat
 MVC4 SignalR Facebook Type Chat Application
 Typescript used for client side and signalR used for server communication 
-Thanks for nice plugin http://chatjs.net/
+Thanks Andrerpena for nice plugin http://chatjs.net/
 
 Run Application
-Use Following Credetails to Login:
+Use Following Credential to Login:
 UserIds-
 
-wilison@hotmail.com
-elenag@hotmail.com
-keenw123@yahoo.com
-henerym@hotmail.com
+1. wilison@hotmail.com;
+2. elenag@hotmail.com;
+3. keenw123@yahoo.com;
+4. henerym@hotmail.com;
 
 Password will be same for all above accounts that is-
 
