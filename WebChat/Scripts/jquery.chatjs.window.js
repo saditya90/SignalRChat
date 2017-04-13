@@ -1,6 +1,4 @@
-﻿/// <reference path="../../Scripts/Typings/jquery/jquery.d.ts"/>
-/// <reference path="jquery.chatjs.interfaces.ts"/>
-
+﻿
 var ChatWindowOptions = (function () {
     function ChatWindowOptions() {
     }

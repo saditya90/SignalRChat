@@ -3,9 +3,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
+using System.Web;
+using System.IO;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Security.Principal;
+using System.Web.Mvc;
+using System.Text;
 
 namespace WebChat.Models
 {
@@ -18,11 +22,13 @@ namespace WebChat.Models
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
             // Add custom user claims here
             userIdentity.AddClaim(new Claim("UserFullName", string.Format("{0} {1}", FirstName, LastName)));
+            userIdentity.AddClaim(new Claim("UserImagePath", string.IsNullOrEmpty(ImagePath) ? "/Images/UsersImage/imgDefault.jpg" : ImagePath));
             return userIdentity;
         }
 
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string ImagePath { get; set; }
         public DateTimeOffset LastActivity { get; set; }
     }
 
@@ -68,6 +74,25 @@ namespace WebChat.Models
             return claim.FindFirst("UserFullName") == null ?
                      string.Empty :
                     claim.FindFirst("UserFullName").Value;
+        }
+
+        public static string UserImagePath(this IIdentity identity)
+        {
+            var claim = identity as ClaimsIdentity;
+            return claim.FindFirst("UserImagePath").Value;
+        }
+    }
+
+    public static class HtmlExtensions
+    {
+        public static MvcHtmlString UserImage(this HtmlHelper helper)
+        {
+            var sb = new StringBuilder();
+            if (File.Exists(Path.Combine("~", HttpContext.Current.User.Identity.UserImagePath())))
+                sb.Append("<img src=\"/Images/UsersImage/imgDefault.jpg\" class=\"img-circle user-img\" alt=\"User Image\" width=\"22\" height=\"22\" />"); 
+            else 
+                sb.Append(string.Format("<img src=\"{0}\" class=\"img-circle user-img\" alt=\"User Image\" width=\"22\" height=\"22\" />", HttpContext.Current.User.Identity.UserImagePath())); 
+            return MvcHtmlString.Create(sb.ToString());
         }
     }
 }

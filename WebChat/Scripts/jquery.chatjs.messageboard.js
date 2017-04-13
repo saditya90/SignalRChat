@@ -284,7 +284,7 @@ var MessageBoard = (function () {
                 $messageP.appendTo($textWrapper);
 
                 // add image
-                var $img = $("<img/>").addClass("profile-picture").appendTo($gravatarWrapper);
+                var $img = $("<img/>").addClass("profile-picture img-circle").appendTo($gravatarWrapper);
                 this.options.adapter.server.getUserInfo(message.UserFromId, function (user) { 
                     $img.attr("src", decodeURI(user.ProfilePictureUrl));
                 });

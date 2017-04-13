@@ -4,7 +4,7 @@ Typescript used for client side and signalR used for server communication
 Thanks Andrerpena for nice plugin http://chatjs.net/
 
 Run Application
-Use Following Credential to Login:
+Use Following Credentials to Login:
 UserIds-
 
 1. wilison@hotmail.com;

@@ -1,10 +1,4 @@
-﻿/// <reference path="../../Scripts/Typings/jquery/jquery.d.ts"/>
-/// <reference path="jquery.chatjs.interfaces.ts"/>
-/// <reference path="jquery.chatjs.utils.ts"/>
-/// <reference path="jquery.chatjs.adapter.ts"/>
-/// <reference path="jquery.chatjs.window.ts"/>
-/// <reference path="jquery.chatjs.messageboard.ts"/>
-
+﻿
 var PmWindowInfo = (function () {
     function PmWindowInfo() {
     }

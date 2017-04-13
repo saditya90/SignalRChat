@@ -22,6 +22,7 @@ namespace WebChat.Models
                         Email = user.Email,
                         FirstName = user.FirstName,
                         LastName = user.LastName,
+                        ImagePath = user.ImagePath,
                         LastActivity = DateTimeOffset.Now
                     };
                     var result = UserManager.Create(newUser, "PassWord12!");
@@ -42,43 +43,49 @@ namespace WebChat.Models
         private List<RegisterViewModel> DefaultUsers()
         {
             #region Users
-             
+
             var users = new List<RegisterViewModel>();
             users.Add(new RegisterViewModel
             {
                 Email = "wilison@hotmail.com",
                 FirstName = "Wilison",
-                LastName = "K"
+                LastName = "K",
+                ImagePath = "/Images/UsersImage/img2.jpg"
             });
             users.Add(new RegisterViewModel
             {
                 Email = "sam12@yahoo.com",
                 FirstName = "Sam",
-                LastName = "Son"
+                LastName = "Son",
+                ImagePath = "/Images/UsersImage/imgDefault.jpg"
             });
             users.Add(new RegisterViewModel
             {
                 Email = "elenag@hotmail.com",
                 FirstName = "Elena",
-                LastName = "Gilbert"
+                LastName = "Gilbert",
+                ImagePath = "/Images/UsersImage/img1.jpg"
             });
             users.Add(new RegisterViewModel
             {
                 Email = "jermey@live.com",
                 FirstName = "Jermey",
-                LastName = "Gilbert"
+                LastName = "Gilbert",
+                ImagePath = "/Images/UsersImage/img3.jpg"
             });
             users.Add(new RegisterViewModel
             {
                 Email = "keenw123@yahoo.com",
                 FirstName = "Keen",
-                LastName = "Wisley"
+                LastName = "Wisley",
+                ImagePath = "/Images/UsersImage/imgDefault.jpg"
             });
             users.Add(new RegisterViewModel
             {
-                Email = "henerym@hotmail.com",
-                FirstName = "Henery",
-                LastName = "L"
+                Email = "john@hotmail.com",
+                FirstName = "Jhon",
+                LastName = "Gilbert",
+                ImagePath = "/Images/UsersImage/img4.jpg"
             });
             return users;
 

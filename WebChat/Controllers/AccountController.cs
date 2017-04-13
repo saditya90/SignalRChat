@@ -16,6 +16,7 @@ namespace WebChat.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private const string DefaultPath = "/Images/UsersImage/imgDefault.jpg";
         private ChatHub _chatHub;
 
         public AccountController()
@@ -162,7 +163,8 @@ namespace WebChat.Controllers
                     Email = model.Email,
                     FirstName = model.FirstName,
                     LastName = model.LastName,
-                    LastActivity = DateTimeOffset.Now
+                    LastActivity = DateTimeOffset.Now,
+                    ImagePath = DefaultPath
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)

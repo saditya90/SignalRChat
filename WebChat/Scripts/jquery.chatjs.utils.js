@@ -1,4 +1,4 @@
-﻿/// <reference path="../../Scripts/Typings/jquery/jquery.d.ts"/>
+﻿
 var ChatJsUtils = (function () {
     function ChatJsUtils() {
     }

@@ -1,10 +1,4 @@
-﻿/// <reference path="../../Scripts/Typings/jquery/jquery.d.ts"/>
-/// <reference path="jquery.chatjs.interfaces.ts"/>
-/// <reference path="jquery.chatjs.utils.ts"/>
-/// <reference path="jquery.chatjs.adapter.ts"/>
-/// <reference path="jquery.chatjs.window.ts"/>
-/// <reference path="jquery.chatjs.messageboard.ts"/>
-
+﻿
 var UserListOptions = (function () {
     function UserListOptions() {
     }
@@ -65,7 +59,7 @@ var UserList = (function () {
             for (var i = 0; i < userList.length; i++) {
                 var $userListItem = $("<div/>").addClass("user-list-item").attr("data-val-id", userList[i].Id).appendTo(this.$el);
 
-                $("<img/>").addClass("profile-picture").attr("src", userList[i].ProfilePictureUrl).appendTo($userListItem);
+                $("<img/>").addClass("profile-picture img-circle").attr("src", userList[i].ProfilePictureUrl).appendTo($userListItem);
 
                 $("<div/>").addClass("profile-status").addClass(userList[i].Status == 0 ? "offline" : "online").appendTo($userListItem);
 

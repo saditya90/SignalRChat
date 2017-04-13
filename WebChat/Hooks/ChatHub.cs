@@ -3,6 +3,8 @@ using Microsoft.AspNet.SignalR;
 using System.Threading.Tasks;
 using WebChat.Models;
 using System;
+using System.Web;
+using System.IO;
 
 namespace WebChat.Hooks
 {
@@ -10,7 +12,7 @@ namespace WebChat.Hooks
     public class ChatHub : Hub
     {
         private readonly ApplicationDbContext _context;
-        private const string DefaultUserImage = "/Images/users.png";
+        private const string DefaultUserImage = "/Images/UsersImage/imgDefault.jpg";
         private const string RoomId = "1";
         private readonly static ConnectionMapping<string> _connections =
             new ConnectionMapping<string>();
@@ -31,7 +33,9 @@ namespace WebChat.Hooks
                              select new ChatModel
                              {
                                  Email = user.Email,
-                                 ProfilePictureUrl = DefaultUserImage,
+                                 ProfilePictureUrl = (!string.IsNullOrEmpty(user.ImagePath) ?
+                                 File.Exists(HttpContext.Current.Server.MapPath(Path.Combine("~", user.ImagePath))) ?
+                                 user.ImagePath : DefaultUserImage : DefaultUserImage),
                                  Id = user.UserName,
                                  Name = user.FirstName,
                                  RoomId = roomId,
@@ -57,7 +61,9 @@ namespace WebChat.Hooks
                             select new ChatModel
                             {
                                 Email = user.Email,
-                                ProfilePictureUrl = DefaultUserImage,
+                                ProfilePictureUrl = (!string.IsNullOrEmpty(user.ImagePath) ?
+                                 File.Exists(HttpContext.Current.Server.MapPath(Path.Combine("~", user.ImagePath))) ?
+                                 user.ImagePath : DefaultUserImage : DefaultUserImage),
                                 Id = user.UserName,
                                 Name = user.FirstName,
                                 RoomId = RoomId,
@@ -111,7 +117,9 @@ namespace WebChat.Hooks
                             select new ChatModel
                             {
                                 Email = user.Email,
-                                ProfilePictureUrl = DefaultUserImage,
+                                ProfilePictureUrl = (!string.IsNullOrEmpty(user.ImagePath) ?
+                                 File.Exists(HttpContext.Current.Server.MapPath(Path.Combine("~", user.ImagePath))) ?
+                                 user.ImagePath : DefaultUserImage : DefaultUserImage),
                                 Id = user.UserName,
                                 Name = user.FirstName,
                                 RoomId = RoomId,
@@ -199,7 +207,9 @@ namespace WebChat.Hooks
                                                select new ChatModel
                                                {
                                                    Email = user.Email,
-                                                   ProfilePictureUrl = DefaultUserImage,
+                                                   ProfilePictureUrl = (!string.IsNullOrEmpty(user.ImagePath) ?
+                                                   File.Exists(HttpContext.Current.Server.MapPath(Path.Combine("~", user.ImagePath))) ?
+                                                   user.ImagePath : DefaultUserImage : DefaultUserImage),
                                                    Id = user.UserName,
                                                    Name = user.FirstName,
                                                    RoomId = RoomId,

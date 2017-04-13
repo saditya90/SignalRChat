@@ -31,3 +31,8 @@ textarea {
 .messages-wrapper {
     height: 266px !important;
 }
+.user-img {
+    position: relative;
+    top: 14px;
+    left: 10px;
+}
