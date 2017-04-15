@@ -7,7 +7,6 @@ using Owin;
 using WebChat.Models;
 using Microsoft.AspNet.SignalR;
 using WebChat.Hooks;
-using System.Web;
 
 namespace WebChat
 {
