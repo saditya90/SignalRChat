@@ -3,7 +3,6 @@ using Microsoft.AspNet.SignalR;
 using System.Threading.Tasks;
 using WebChat.Models;
 using System;
-using System.Web;
 using System.IO;
 
 namespace WebChat.Hooks
