@@ -4,8 +4,8 @@ Typescript used for client side and signalR used for server communication
 Thanks Andrerpena for nice plugin http://chatjs.net/
 
 Prerequisite: 
-Visual Studio 2015
-MS Sql 2012 or later
+Visual Studio 2015, 
+MS Sql Server 2012 or later
 
 Run Application
 Use Following Credentials to Login:
