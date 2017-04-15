@@ -40,6 +40,9 @@ namespace WebChat
                       "~/Scripts/jquery.chatjs.friendswindow.js",
                       "~/Scripts/jquery.chatjs.controller.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/signalr").Include(
+                "~/Scripts/jquery.signalR-2.2.1.min.js"));
+
             bundles.Add(new StyleBundle("~/Content/chatcss").Include(
                       "~/Content/jquery.chatjs.css"));
         }

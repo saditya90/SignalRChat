@@ -34,7 +34,7 @@ namespace WebChat.Hooks
                              {
                                  Email = user.Email,
                                  ProfilePictureUrl = (!string.IsNullOrEmpty(user.ImagePath) ?
-                                 File.Exists(HttpContext.Current.Server.MapPath(Path.Combine("~", user.ImagePath))) ?
+                                 File.Exists(Context.Request.GetHttpContext().Server.MapPath(Path.Combine("~", user.ImagePath))) ?
                                  user.ImagePath : DefaultUserImage : DefaultUserImage),
                                  Id = user.UserName,
                                  Name = user.FirstName,
@@ -62,7 +62,7 @@ namespace WebChat.Hooks
                             {
                                 Email = user.Email,
                                 ProfilePictureUrl = (!string.IsNullOrEmpty(user.ImagePath) ?
-                                 File.Exists(HttpContext.Current.Server.MapPath(Path.Combine("~", user.ImagePath))) ?
+                                 File.Exists(Context.Request.GetHttpContext().Server.MapPath(Path.Combine("~", user.ImagePath))) ?
                                  user.ImagePath : DefaultUserImage : DefaultUserImage),
                                 Id = user.UserName,
                                 Name = user.FirstName,
@@ -118,7 +118,7 @@ namespace WebChat.Hooks
                             {
                                 Email = user.Email,
                                 ProfilePictureUrl = (!string.IsNullOrEmpty(user.ImagePath) ?
-                                 File.Exists(HttpContext.Current.Server.MapPath(Path.Combine("~", user.ImagePath))) ?
+                                 File.Exists(Context.Request.GetHttpContext().Server.MapPath(Path.Combine("~", user.ImagePath))) ?
                                  user.ImagePath : DefaultUserImage : DefaultUserImage),
                                 Id = user.UserName,
                                 Name = user.FirstName,
@@ -202,13 +202,13 @@ namespace WebChat.Hooks
                 {
                     var usersInfo = _context.Users.Where(q => !q.UserName.Contains(who)).ToList();
                     if (usersInfo.Count > 0)
-                    {
+                    { 
                         var chatUsersDetail = (from user in usersInfo
                                                select new ChatModel
                                                {
                                                    Email = user.Email,
                                                    ProfilePictureUrl = (!string.IsNullOrEmpty(user.ImagePath) ?
-                                                   File.Exists(HttpContext.Current.Server.MapPath(Path.Combine("~", user.ImagePath))) ?
+                                                   File.Exists(Context.Request.GetHttpContext().Server.MapPath(Path.Combine("~", user.ImagePath))) ?
                                                    user.ImagePath : DefaultUserImage : DefaultUserImage),
                                                    Id = user.UserName,
                                                    Name = user.FirstName,

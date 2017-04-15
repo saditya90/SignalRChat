@@ -10,8 +10,10 @@
     @Scripts.Render("~/bundles/bootstrap")
     @if (Request.IsAuthenticated)
     {
-        <script src="~/Scripts/jquery.signalR-2.2.1.min.js"></script>
+        @Scripts.Render("~/bundles/signalr")
         <script src="~/signalr/hubs"></script>
+        @Scripts.Render("~/bundles/chatjs")
+        @Styles.Render("~/Content/chatcss")
     }
     @RenderSection("scripts", required: false)
 </head>
@@ -43,5 +45,6 @@
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
+    @Html.Partial("_Chat")
 </body>
 </html>
