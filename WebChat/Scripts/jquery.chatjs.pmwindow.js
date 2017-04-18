@@ -25,6 +25,7 @@ var ChatPmWindow = (function () {
         defaultOptions.typingText = " is typing...";
         defaultOptions.isMaximized = true;
         defaultOptions.dataId = "";
+        defaultOptions.dataCId = "";
         defaultOptions.gavatar = "";
         defaultOptions.onCreated = function () {
         };
@@ -38,6 +39,7 @@ var ChatPmWindow = (function () {
             var chatWindowOptions = new ChatWindowOptions();
             chatWindowOptions.title = userInfo.Name;
             chatWindowOptions.dataId = userInfo.Id;
+            chatWindowOptions.dataCId = userInfo.CurrentId;
             chatWindowOptions.gavatar = userInfo.ProfilePictureUrl;
             chatWindowOptions.canClose = true;
             chatWindowOptions.isMaximized = _this.options.isMaximized;

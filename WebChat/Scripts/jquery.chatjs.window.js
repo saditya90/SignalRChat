@@ -30,6 +30,7 @@ var ChatWindow = (function () {
         this.$windowTitle = $("<div/>").addClass("chat-window-title").appendTo(this.$window);
         if (this.options.dataId !== null && this.options.dataId !== undefined) {
             this.$window.attr("data-winid", "div_" + this.options.dataId);
+            this.$window.attr("data-cid", this.options.dataCId);
         } 
         if (this.options.gavatar !== null && this.options.gavatar !== undefined) {
             this.$window.attr("data-gavatar", this.options.gavatar);

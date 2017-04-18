@@ -8,6 +8,7 @@
         public string Email { get; set; }
         public string ProfilePictureUrl { get; set; }
         public string Status { get; set; }
+        public string CurrentId { get; set; }
     }
 
     public class ChatSignaling

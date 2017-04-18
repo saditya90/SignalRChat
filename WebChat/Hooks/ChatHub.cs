@@ -66,7 +66,8 @@ namespace WebChat.Hooks
                                 Id = user.UserName,
                                 Name = user.FirstName,
                                 RoomId = RoomId,
-                                Status = (_connections.GetConnections(user.Email).Count() == 0 ? "0" : "1")
+                                Status = (_connections.GetConnections(user.Email).Count() == 0 ? "0" : "1"),
+                                CurrentId = Context.User.Identity.Name
                             }).FirstOrDefault();
             return Newtonsoft.Json.JsonConvert.SerializeObject(chatUser);
         }
@@ -83,13 +84,12 @@ namespace WebChat.Hooks
             conversationId = conversationId ?? string.Empty;
             var userId = Context.User.Identity.Name;
             var message = new MessageInfo
-            {
-                ClientGuid = clientGuid,
+            { 
                 ConversationId = conversationId,
                 Message = messageText,
                 RoomId = roomId,
-                UserFromId = otherUserId,
-                UserToId = userId
+                UserFromId = userId,
+                UserToId = otherUserId
             };
             var host = GlobalHost.ConnectionManager.GetHubContext<ChatHub>();
             isSeen = _connections.GetConnections(otherUserId).Count() > 0 ? true : false;
@@ -112,7 +112,7 @@ namespace WebChat.Hooks
             var userId = Context.User.Identity.Name;
             var users = _context.Users.ToList();
             var chatUser = (from user in users
-                            where user.UserName == userToId
+                            where user.UserName == userId
                             select new ChatModel
                             {
                                 Email = user.Email,
@@ -128,7 +128,7 @@ namespace WebChat.Hooks
             {
                 ConversationId = null,
                 RoomId = RoomId,
-                UserToId = userId,
+                UserToId = userToId,
                 UserFrom = chatUser
             };
             var host = GlobalHost.ConnectionManager.GetHubContext<ChatHub>();

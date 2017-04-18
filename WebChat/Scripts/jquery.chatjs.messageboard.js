@@ -154,7 +154,8 @@ var MessageBoard = (function () {
         var clientGuid = (generateGuidPart() + generateGuidPart() + '-' + generateGuidPart() + '-' + generateGuidPart() + '-' + generateGuidPart() + '-' + generateGuidPart() + generateGuidPart() + generateGuidPart());
 
         var message = new ChatMessageInfo();
-        var identity = $(this.$el[0]).closest("div.chat-window")[0].getAttribute("data-winid").split("_")[1];
+        //var identity = $(this.$el[0]).closest("div.chat-window")[0].getAttribute("data-winid").split("_")[1];
+        var identity = $(this.$el[0]).closest("div.chat-window")[0].getAttribute("data-cid");
         //message.UserFromId = this.options.userId;
         message.UserFromId = identity;
         
@@ -262,8 +263,7 @@ var MessageBoard = (function () {
         } else {
             var $messageP = $("<p/>").text(message.Message);
             if (clientGuid)
-                $messageP.attr("data-val-client-guid", clientGuid).addClass("temp-message");
-
+                $messageP.attr("data-val-client-guid", clientGuid).addClass("temp-message"); 
             linkify($messageP);
             emotify($messageP);
 
