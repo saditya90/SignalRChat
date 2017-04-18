@@ -78,10 +78,10 @@ var SignalRClientAdapter = (function () {
         // called by the server when a new message arrives
         this.hubClient.sendMessage = function (message) {
             var msg = JSON.parse(message);
-            if ($("div.chat-window[data-winid='div_" + msg.UserToId + "']").length == 0) {
-                $("div.user-list-item[data-val-id='" + msg.UserToId + "']").trigger("click");
+            if ($("div.chat-window[data-winid='div_" + msg.UserFromId + "']").length == 0) {
+                $("div.user-list-item[data-val-id='" + msg.UserFromId + "']").trigger("click");
                 window.setTimeout(function () {
-                    if ($("div.chat-window[data-winid='div_" + msg.UserToId + "'] div.messages-wrapper div.chat-message").length == 0) {
+                    if ($("div.chat-window[data-winid='div_" + msg.UserFromId + "'] div.messages-wrapper div.chat-message").length == 0) {
                         _this.triggerMessagesChanged(msg);
                     }
                 }, 1000);

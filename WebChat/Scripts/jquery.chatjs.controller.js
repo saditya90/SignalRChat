@@ -18,6 +18,7 @@ var ChatController = (function () {
         var _this = this;
         var defaultOptions = new ChatControllerOptions();
         defaultOptions.roomId = null;
+        defaultOptions.userId = 1;
         defaultOptions.friendsTitleText = "Friends";
         defaultOptions.availableRoomsText = "Available rooms";
         defaultOptions.typingText = " is typing...";
