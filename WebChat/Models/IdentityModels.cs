@@ -88,7 +88,7 @@ namespace WebChat.Models
         public static MvcHtmlString UserImage(this HtmlHelper helper)
         {
             var sb = new StringBuilder();
-            if (File.Exists(Path.Combine("~", HttpContext.Current.User.Identity.UserImagePath())))
+            if (File.Exists(HttpContext.Current.Server.MapPath(Path.Combine("~", HttpContext.Current.User.Identity.UserImagePath()))))
                 sb.Append("<img src=\"/Images/UsersImage/imgDefault.jpg\" class=\"img-circle user-img\" alt=\"User Image\" width=\"22\" height=\"22\" />"); 
             else 
                 sb.Append(string.Format("<img src=\"{0}\" class=\"img-circle user-img\" alt=\"User Image\" width=\"22\" height=\"22\" />", HttpContext.Current.User.Identity.UserImagePath())); 
