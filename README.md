@@ -1,6 +1,5 @@
 # SignalRChat
 MVC5 SignalR Facebook Type Chat Application
-Thanks Andrerpena for nice plugin http://chatjs.net/
 
 Prerequisite: 
 Visual Studio 2015, 
